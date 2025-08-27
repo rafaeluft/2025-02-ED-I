@@ -24,3 +24,13 @@ void TPonto_set_x(TPonto* ponto, float x){
         ponto->x = x;
     }
 }
+
+void TPonto_delete(TPonto* ponto){
+    free(ponto);
+}
+
+void TPonto_get_x(TPonto* ponto, float* plocal_x){
+    if(ponto){
+        *plocal_x = ponto->x;
+    }
+}
