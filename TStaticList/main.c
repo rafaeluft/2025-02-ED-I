@@ -5,7 +5,7 @@ int main(){
     TStaticList* lista_impares = TStaticList_create();
     TStaticList* lista_pares = TStaticList_create();
     for(int i=0; i<20; i++){
-        if(i%2){
+        if(i%2 != 0){
             if(!TStaticList_insert(lista_impares, i))
                 printf("Erro ao inserir o elemento %d na lista de impares!\n", i);
         }
