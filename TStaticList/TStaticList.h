@@ -29,5 +29,12 @@ bool TStaticList_insert_begin(TStaticList*, int);
  */
 void TStaticList_print(TStaticList*);
 
+/**
+ * Tenta deletar a primeira ocorrência do número passado
+ * @param TStaticList* ponteiro para a instância de uma lista
+ * @param int Valor que se deseja tentar remover da lista
+ * @return bool informando o sucesso da operação
+ */
+bool TStaticList_try_to_delete(TStaticList*, int);
 
 #endif
