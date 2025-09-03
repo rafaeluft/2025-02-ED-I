@@ -23,7 +23,7 @@ TStaticList* TStaticList_create(){
     return nova;
 }
 
-bool TStaticList_insert(TStaticList* lista, int valor){
+bool TStaticList_insert_end(TStaticList* lista, int valor){
     if(lista!=NULL && !TStaticList_is_full(lista)){
         lista->data[lista->qty] = valor;
         lista->qty = lista->qty+1;
@@ -31,7 +31,10 @@ bool TStaticList_insert(TStaticList* lista, int valor){
     }
     return false;
 }
-
+bool TStaticList_insert_begin(TStaticList* lista, int valor){
+    //TODO: Fazer a implementação usando a política de inserção do início
+    //Olhe a documentação no arquivo .h e o slide 12 para referência
+}
 void TStaticList_print(TStaticList* lista){
     if(lista){
         if(TStaticList_is_empty(lista))
