@@ -1,5 +1,6 @@
 #include "TStaticList.h"
 #include <stdlib.h>
+#include <stdio.h>
 #define MAX 10
 struct _list{
     int qty;//quantidade de elementos atualmente na lista
@@ -29,4 +30,16 @@ bool TStaticList_insert(TStaticList* lista, int valor){
         return true;
     }
     return false;
+}
+
+void TStaticList_print(TStaticList* lista){
+    if(lista){
+        if(TStaticList_is_empty(lista))
+            puts("Lista vazia!");
+        else{
+            for(int i=0; i<lista->qty; i++)
+                printf("[%d] ", lista->data[i]);
+            putchar('\n');
+        }
+    }   
 }

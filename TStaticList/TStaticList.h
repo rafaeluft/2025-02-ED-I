@@ -7,7 +7,7 @@ typedef struct _list TStaticList;
  * Cria instâncias para uma lista de inteiros (inicialmente vazia);
  * @return TStaticList* ponteiro para a lista recém criada.
  */
-TStaticList* TStatic_create();
+TStaticList* TStaticList_create();
 /**
  * Tenta realizar a inserção de um elemento inteiro na lista;
  * @param TStaticList* ponteiro para uma lista criada com TStaticList_create()
@@ -15,5 +15,11 @@ TStaticList* TStatic_create();
  * @return bool Informa sobre o sucesso da operação
  */
 bool TStaticList_insert(TStaticList*, int);
+/**
+ * Imprime a lista de inteiros
+ * @param TStaticList* ponteiro para uma lista instanciada;
+ */
+void TStaticList_print(TStaticList*);
+
 
 #endif
