@@ -56,3 +56,25 @@ void TStaticList_print(TStaticList* lista){
         }
     }   
 }
+
+bool TStaticList_try_to_delete(TStaticList* lista, int valor){
+    
+    //1. Verificar se a lista não está vazia
+    if(lista!=NULL && !TStaticList_is_empty(lista)){
+        //2. Tentar encontrar o elemento
+        for(int i=0; i<lista->qty; i++){
+            if(lista->data[i] == valor)//Encontrei!
+            {
+                //3. Se eu encontrei, movo os dados..
+                //i é o índice onde o valor foi encontrado
+                for(int j=i; j<lista->qty-1; j++)
+                    lista->data[j] = lista->data[j+1];
+                //4. Diminuir a quantidade de elementos...
+                lista->qty--;
+                return true;
+            }
+        }
+        return false; //Nao encontrei ...
+    }
+    return false;//A lista nao é válida ou é vazia..
+}
