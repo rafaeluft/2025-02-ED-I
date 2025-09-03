@@ -1,0 +1,32 @@
+#include "TStaticList.h"
+#include <stdlib.h>
+#define MAX 10
+struct _list{
+    int qty;//quantidade de elementos atualmente na lista
+    int data[MAX];
+};
+
+bool TStaticList_is_empty(TStaticList* list){
+    return list->qty == 0;
+}
+bool TStaticList_is_full(TStaticList* list){
+    return list->qty == MAX;
+}
+
+TStaticList* TStaticList_create(){
+//Vamos criar uma lista vazia
+    TStaticList* nova = malloc(sizeof(TStaticList));
+    if(nova != NULL){
+        nova->qty = 0;
+    }
+    return nova;
+}
+
+bool TStaticList_insert(TStaticList* lista, int valor){
+    if(lista!=NULL && !TStaticList_is_full(lista)){
+        lista->data[lista->qty] = valor;
+        lista->qty = lista->qty+1;
+        return true;
+    }
+    return false;
+}
