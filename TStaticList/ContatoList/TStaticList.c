@@ -4,7 +4,7 @@
 #define MAX 10
 struct _list{
     int qty;//quantidade de elementos atualmente na lista
-    int data[MAX];
+    TContato* data[MAX];
 };
 
 bool TStaticList_is_empty(TStaticList* list){
@@ -23,7 +23,7 @@ TStaticList* TStaticList_create(){
     return nova;
 }
 
-bool TStaticList_insert_end(TStaticList* lista, int valor){
+bool TStaticList_insert_end(TStaticList* lista, TContato* valor){
     if(lista!=NULL && !TStaticList_is_full(lista)){
         lista->data[lista->qty] = valor;
         lista->qty = lista->qty+1;
@@ -31,7 +31,7 @@ bool TStaticList_insert_end(TStaticList* lista, int valor){
     }
     return false;
 }
-bool TStaticList_insert_begin(TStaticList* lista, int valor){
+bool TStaticList_insert_begin(TStaticList* lista, TContato* valor){
     //1. Testar se a lista nao está cheia
     if(lista!=NULL && !TStaticList_is_full(lista)){
     //2. Mover os dados para abrir espaço no índice 0
@@ -51,7 +51,7 @@ void TStaticList_print(TStaticList* lista){
             puts("Lista vazia!");
         else{
             for(int i=0; i<lista->qty; i++)
-                printf("[%d] ", lista->data[i]);
+                TContato_print(lista->data[i]);
             putchar('\n');
         }
     }   

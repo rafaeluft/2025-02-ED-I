@@ -8,6 +8,9 @@ typedef struct _contato{
     char telefone[64];
 }TContato;
 
+void TContato_destroy(TContato* contato){
+    free(contato);
+}
 //TODO: Implementar as funções
 TContato* TContato_create(char* nome, char* telefone){
     static int ID = 1;

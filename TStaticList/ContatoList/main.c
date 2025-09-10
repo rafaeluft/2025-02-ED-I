@@ -1,4 +1,4 @@
-//#include "TStaticList.h"
+#include "TStaticList.h"
 #include "TContato.h"
 #include <stdio.h>
 #include <string.h>
@@ -25,14 +25,24 @@ TContato* NovoContato_UI(){
 }
 
 int main(){
+    TStaticList* agenda = TStaticList_create();
     int op;
     do{
         op = menu();
         switch(op){
             //Queimando memória aqui...
-            case 1: TContato_print(NovoContato_UI()); 
+            case 1: 
+                if(!TStaticList_is_full(agenda)){
+                    TContato* novo = NovoContato_UI();
+                    if(TStaticList_insert_end(agenda, novo))
+                        puts("Contato inserido com sucesso!");
+                    else
+                        TContato_destroy(novo);
+                }
+                else    
+                    puts("A lista está cheia!");
             break;
-            case 2: break;
+            case 2: TStaticList_print(agenda); break;
             case 0: puts("Ate outra hora!");
         }
     }while(op!=0);
