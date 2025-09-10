@@ -1,24 +1,40 @@
-#include "TStaticList.h"
+//#include "TStaticList.h"
+#include "TContato.h"
 #include <stdio.h>
+#include <string.h>
+
+int menu(){
+    int op;
+    printf("1 - Para Inserir\n2 - Para exibir\n 0-> Sair\nSua op: ");
+    scanf("%d", &op);
+    getchar();
+    return op;
+}
+//Ler as informações do teclado e retornar um TContato*
+TContato* NovoContato_UI(){
+    char nome[128], telefone[64];
+    printf("Digite o nome: ");
+    fgets(nome, 128, stdin);
+    nome[strlen(nome)-1] = '\0';
+    //getchar();
+    printf("Telefone: ");
+    fgets(telefone, 128, stdin);
+    telefone[strlen(telefone)-1] = '\0';
+    //getchar();
+    return TContato_create(nome, telefone);
+}
 
 int main(){
-    TStaticList* lista_impares = TStaticList_create();
-    TStaticList* lista_pares = TStaticList_create();
-    //Experimente alterar o valor para além da capacidade da lista
-    //Qualquer valor acima de 20 já nao consegue mais inserir.
-    for(int i=0; i<20; i++){
-        if(i%2 != 0){
-            //Vai dar erro aqui até que você faça a codificação correta desta função
-            if(!TStaticList_insert_begin(lista_impares, i))
-                printf("Erro ao inserir o elemento %d na lista de impares!\n", i);
+    int op;
+    do{
+        op = menu();
+        switch(op){
+            //Queimando memória aqui...
+            case 1: TContato_print(NovoContato_UI()); 
+            break;
+            case 2: break;
+            case 0: puts("Ate outra hora!");
         }
-        else
-            if(!TStaticList_insert_end(lista_pares, i))
-                printf("Erro ao inserir o elemento %d na lista de pares!\n", i);
-    }
-    puts("Segue a lista de números pares:");
-    TStaticList_print(lista_pares);
-    puts("Segue a lista de números ímpares:");
-    TStaticList_print(lista_impares);
+    }while(op!=0);
     return 0;
 }

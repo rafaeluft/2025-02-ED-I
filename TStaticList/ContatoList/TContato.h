@@ -1,13 +1,8 @@
 #ifndef TCONTATO_H
 #define TCONTATO_H
-
-typedef struct {
-    int id;
-    char nome[128];
-    char telefone[64];
-}TContato;
-
-TContato* TContato_create(int, char*, char*);
+//Vamos definir o TAD TContato
+typedef struct _contato TContato;
+TContato* TContato_create(char*, char*);
 void TContato_print(TContato*);
 //Se você quiser definir outras funções...
 
