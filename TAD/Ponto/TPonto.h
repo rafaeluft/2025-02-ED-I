@@ -21,14 +21,33 @@ void TPonto_print(TPonto*);
  */
 void TPonto_set_x(TPonto*, float);
 /**
- * Deleta instâncias de TPonto;
- * @param TPonto* ponteiro para um ponto
- */
-void TPonto_delete(TPonto*);
-/**
  * Acessa o valor da coordenada x e escreve no ponteiro passado por parâmetro.
  * @param TPonto* instância do ponto
  * @param float* ponteiro para a variável que receberá o valor de x
  */
 void TPonto_get_x(TPonto*, float*);
+/**
+ * Atribui um novo valor à coordenada x de uma instância.
+ * @param TPonto* instância do ponto
+ * @param float y novo valor da coordenada y
+ */
+void TPonto_set_y(TPonto*, float);
+/**
+ * Acessa o valor da coordenada y e escreve no ponteiro passado por parâmetro.
+ * @param TPonto* instância do ponto
+ * @param float* ponteiro para a variável que receberá o valor de y
+ */
+void TPonto_get_y(TPonto*, float*);
+
+/**
+ * Deleta instâncias de TPonto;
+ * @param TPonto* ponteiro para um ponto
+ */
+void TPonto_delete(TPonto*);
+/**
+ * Calcula a distância euclidiana entre dois pontos.
+ */
+float TPonto_distancia(TPonto*, TPonto*);
+
+
 #endif
