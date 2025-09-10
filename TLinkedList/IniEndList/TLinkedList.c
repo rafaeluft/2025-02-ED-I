@@ -29,8 +29,19 @@ TLinkedList* TLinkedList_create(){
 }
 
 bool TLinkedList_insert_end(TLinkedList* lista, int info){
-    //TODO: Implementar esta funcao
-    return false;
+    TNo* novo = TNo_createNfill(info);
+    if(novo == NULL) //Nao conseguimos memoria
+        return false;
+    if(lista->inicio == NULL){
+        lista->inicio = novo;
+    }else{
+        TNo* aux = lista->inicio;
+        while(aux->prox != NULL)
+            aux = aux->prox;
+        //Aux agora eh o ultimo no da lista
+        aux->prox = novo;
+    }
+    return true;
 }
 bool TLinkedList_insert_begin(TLinkedList* lista, int info){
     TNo* novo = TNo_createNfill(info);
