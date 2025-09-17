@@ -114,3 +114,26 @@ TLinkedList* TLinkedList_concatenate_pure(TLinkedList* L1, TLinkedList* L2){
     }
     return L3;
 }
+
+TLinkedList* TLinkedList_concatenate(TLinkedList* L1, TLinkedList* L2){
+    //Criar a lista de retorno
+    TLinkedList* L3 = TLinkedList_create();
+
+    //Navegar pela lista 1, inserindo os elementos na lista resultante
+    TNo* aux = L1->inicio;
+    while(aux){
+        //Inserir o novo no na lista L3
+        if(!TLinkedList_insert_end(L3, aux->info))
+            break;
+        aux = aux->prox;
+    }
+    //Navegar pela lista 2, inserindo os elementos na lista resultante
+    aux = L2->inicio;
+    while(aux){
+        //Inserir o novo no na lista L3
+        if(!TLinkedList_insert_end(L3, aux->info))
+            break;
+        aux = aux->prox;
+    }
+    return L3;
+}

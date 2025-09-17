@@ -25,5 +25,5 @@ TLinkedList* TLinkedList_concatenate_pure(TLinkedList*, TLinkedList*);
  * @param TLinkedList* Ponteiro para a segunda lista a ser concatenada
  * @return TLinkedList* Ponteiro para a lista resultante.
  */
-TLinkedList* TLinedList_concatenate(TLinkedList*, TLinkedList*);
+TLinkedList* TLinkedList_concatenate(TLinkedList*, TLinkedList*);
 #endif

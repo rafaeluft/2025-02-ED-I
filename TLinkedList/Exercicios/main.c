@@ -11,7 +11,7 @@ int main(){
     TLinkedList_print(lista1);
     TLinkedList_print(lista2);
     //Teste do Exercício 1
-    TLinkedList *lista3 = TLinkedList_concatenate_pure(lista1, lista2);
+    TLinkedList *lista3 = TLinkedList_concatenate(lista1, lista2);
     TLinkedList_print(lista3);
     return 0;
 }
