@@ -1,0 +1,4 @@
+# ninja log v6
+0	65	1758107149653820371	CMakeFiles/IniEndList.dir/main.c.o	d5d9d32e36a24beb
+1	65	1758107149654152205	CMakeFiles/IniEndList.dir/TLinkedList.c.o	ee63dd45b6e81cea
+66	103	1758107149718910418	IniEndList	92683828b66e6e81

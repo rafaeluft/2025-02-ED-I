@@ -1,0 +1,3 @@
+/Users/rafaellima/Code/2025-02-ED-I/TLinkedList/IniEndList/cmake-build-debug/CMakeFiles/IniEndList.dir
+/Users/rafaellima/Code/2025-02-ED-I/TLinkedList/IniEndList/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/rafaellima/Code/2025-02-ED-I/TLinkedList/IniEndList/cmake-build-debug/CMakeFiles/rebuild_cache.dir
