@@ -19,4 +19,10 @@ void TLinkedList_print(TLinkedList*);
  */
 bool TLinkedList_try_to_delete(TLinkedList*, int);
 
+/**
+ * Remove todos os nós da lista e apaga o ponteiro da lista
+ * @param TLinkedList* ponteiro para a lista
+ */
+void TLinkedList_free(TLinkedList*);
+
 #endif
