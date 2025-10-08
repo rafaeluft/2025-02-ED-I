@@ -66,3 +66,7 @@ void TLinkedList_print(TLinkedList* lista){
 bool TLinkedList_try_to_delete(TLinkedList* lista, int info){
 
 }
+//TODO: Implementar esta função 
+void TLinkedList_free(TLinkedList* lista){
+    
+}

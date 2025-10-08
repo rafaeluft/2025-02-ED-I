@@ -10,5 +10,6 @@ int main(){
     TLinkedList_try_to_delete(lista, 1);
     TLinkedList_try_to_delete(lista, 3);
     TLinkedList_print(lista);//Sobra apenas o nó 2
+    TLinkedList_free(lista);
     return 0;
 }
