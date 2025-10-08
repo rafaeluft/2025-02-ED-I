@@ -15,7 +15,7 @@ TNo* TNo_createNfill(int info){
     TNo* novo = malloc(sizeof(TNo));
     if(novo!=NULL){
         novo->info = info;
-        novo->prox = NULL;
+        novo->prox = novo;
     }
     return novo;
 }
@@ -38,24 +38,35 @@ bool TCircList_insert_end(TCircList* lista, int info){
 }
 //TODO: Implementar esta função
 bool TCircList_insert_begin(TCircList* lista, int info){
-
     TNo* novo = TNo_createNfill(info);
     if(novo == NULL) //Nao conseguimos memoria
         return false;
-    /*if(lista->inicio != NULL)
+    if(lista->inicio != NULL) //Ja existem nós na lista (pelo menos 1)
+    {
+        //Encontrar o último nó
+        TNo* aux = lista->inicio;
+        while(aux->prox != lista->inicio)
+            aux = aux->prox;
+        aux->prox = novo;
         novo->prox = lista->inicio;
+    }
     lista->inicio = novo;
-    */
     return true;
 }
 
 void TCircList_print(TCircList* lista){
-    if(lista!=NULL){
+    if(lista!=NULL && lista->inicio != NULL){
+        TNo* aux = lista->inicio;
+        do{
+            printf("%d->", aux->info);
+            aux = aux->prox;
+        }while(aux!=lista->inicio);
+        putchar('\n');
     }
 }
 //TODO: Implementar esta função
 bool TCircList_try_to_delete(TCircList* lista, int info){
-
+    return false;
 }
 //TODO: Implementar esta função 
 void TCircList_free(TCircList* lista){
