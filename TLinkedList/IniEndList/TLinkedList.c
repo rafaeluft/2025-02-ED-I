@@ -57,16 +57,51 @@ void TLinkedList_print(TLinkedList* lista){
     if(lista!=NULL){
         TNo* aux = lista->inicio;
         while(aux!=NULL){
-            printf("%p:[info: %d, prox: %p]->\n", aux, aux->info, aux->prox);
+            printf("[%d]->", aux->info);
             aux = aux->prox;
         }
+        putchar('\n');
     }
 }
-//TODO: Implementar esta função
 bool TLinkedList_try_to_delete(TLinkedList* lista, int info){
-
+    if(lista!=NULL){
+        if(lista->inicio != NULL){
+            //Quem eu quero deletar é o inicio da lista?
+            if(lista->inicio->info == info){
+                //Deletar o nó do início
+                TNo* temp = lista->inicio;
+                //Movo o início para o próximo
+                lista->inicio = lista->inicio->prox;
+                //deleto o temp
+                free(temp);
+                return true;
+            }else{
+                //Devemos procurar o elemento a ser deletado
+                TNo* y = lista->inicio; //nó anterior ao elemento a ser deletado
+                TNo* temp = y->prox;
+                while(temp!= NULL && temp->info != info){
+                    y = temp;
+                    temp=temp->prox;
+                }
+                if(temp != NULL){
+                    //Encontrei um nó que a info é igual a que eu estou buscando
+                    y->prox = temp->prox;
+                    free(temp);
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
 }
-//TODO: Implementar esta função 
 void TLinkedList_free(TLinkedList* lista){
-    
+    if(lista!=NULL){
+        TNo* aux;
+        while(lista->inicio != NULL){
+            aux = lista->inicio;
+            lista->inicio = aux->prox;
+            free(aux);
+        }
+        free(lista);
+    }    
 }
