@@ -1,0 +1,4 @@
+Valores lidos: n=5 m3
+Valor lido: 4
+Valor lido: 2
+Valor lido: 1
