@@ -1,33 +1,37 @@
 #include "TStack.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
-
-
-
-int main(){
+bool palindromo(char *input){
     Stack* pilha = Stack_create();
-    //Ler a string 
-    char input[1024];
-    //fgets(input, 1024, stdin);
-    scanf("%s", input);
-    //printf("%s", input);
 
     for(int i=0; i<strlen(input);i++){
         //printf("%d = %c \n", input[i], input[i]);
-        if(!Stack_push(pilha, input[i]))
+        if(!Stack_push(pilha, input[i])){
             printf("ERRO: ao empilhar o caractere %c\n", input[i]);
+            return false;
+        }
     }
     int temp;
     for(int i=0; i<strlen(input);i++){
-        Stack_pop(pilha, &temp);
+        if(!Stack_pop(pilha, &temp)){
+            printf("ERRO: ao realizar a operacao de pop!");
+            return false;
+        }
         if(input[i] != (char)temp)
         {
-            printf("Nao eh palindromo.\n");
             Stack_destroy(pilha);
-            return 0;    
+            return false;    
         }
     }
-    printf("Eh palindromo.\n");
+    return true;
+}
+
+int main(){
+    //Ler a string 
+    char input[1024];
+    scanf("%s", input);
+    puts((palindromo(input))? "Eh palindromo.": "Nao eh palindromo");
     return 0;
 }
